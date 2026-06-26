@@ -19,7 +19,7 @@ export default function AboutPage() {
             <div className={styles.stats}>
               <div>
                 <div className={styles.statValue}>M1</div>
-                <div className={styles.statLabel}>网络工程在读 / Réseau</div>
+                <div className={styles.statLabel}>网络安全 / Cybersécurité</div>
               </div>
               <div>
                 <div className={`${styles.statValue} ${styles.statValueSm}`}>Paris</div>
@@ -35,13 +35,13 @@ export default function AboutPage() {
           {/* Right column - content */}
           <div className={styles.rightCol}>
             <p className={styles.bioCn}>
-              我是王世洪（Eric），一名全栈开发者，目前在巴黎西岱大学（Université Paris Cité）攻读网络工程硕士（M1），此前在同校完成计算机专业本科。多年的开发经验让我能独立完成从前端、后端到数据库与运维的完整项目。工作之外，我是一名风光摄影爱好者，喜欢在旅途中记录自然的光线与地貌。
+              我是王世洪（Shihong），一名全栈开发者，巴黎西岱大学（Université Paris Cité）计算机 BUT 毕业，现 M1 网络安全工程师（alternance）。多年的开发经验让我能独立完成从前端、后端到数据库与运维的完整项目。工作之外，我是一名风光摄影爱好者，喜欢在旅途中记录自然的光线与地貌。
             </p>
             <p className={styles.bioEn}>
-              I&apos;m Eric Wang — a full-stack developer in Paris, currently pursuing a Master&apos;s in Network Engineering at Université Paris Cité, where I earned my Computer Science degree. My experience lets me carry projects end to end: frontend, backend, databases and ops. Off the clock, I&apos;m a landscape photographer chasing natural light on the road.
+              I&apos;m Shihong Wang — a full-stack developer in Paris, graduate of a Computer Science BUT from Université Paris Cité, currently pursuing an M1 in Cybersecurity (work-study). My experience lets me carry projects end to end: frontend, backend, databases and ops. Off the clock, I&apos;m a landscape photographer chasing natural light on the road.
             </p>
             <p className={styles.bioFr}>
-              Développeur full-stack à Paris, en Master d&apos;ingénierie réseau à l&apos;Université Paris Cité, où j&apos;ai obtenu ma licence en informatique. Je mène les projets de bout en bout, du frontend à l&apos;ops, et je photographie les paysages en voyage.
+              Développeur full-stack à Paris, diplômé d&apos;un BUT Informatique de l&apos;Université Paris Cité, en M1 Cybersécurité en alternance. Je mène les projets de bout en bout, du frontend à l&apos;ops, et je photographie les paysages en voyage.
             </p>
 
             <div className={styles.approachHeader}>怎么工作 · Approche</div>

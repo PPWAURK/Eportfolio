@@ -33,7 +33,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const galleryItems = [0, 1, 2, 3, 4];
+  const images = project.images ?? [];
 
   return (
     <div className={styles.detail}>
@@ -79,23 +79,43 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           )}
         </div>
       </div>
-      <div className={styles.gallery}>
-        {galleryItems.map((k) => (
-          <div
-            key={k}
-            className={styles.galleryItem}
-            style={{
-              background: project.g,
-              gridColumn: k === 0 ? '1 / -1' : undefined,
-              aspectRatio: k === 0 ? '16 / 10' : '4 / 3',
-            }}
+      {project.video && (
+        <div className={styles.videoWrap}>
+          {/* eslint-disable-next-line @next/next/no-video-element */}
+          <video
+            src={project.video}
+            className={styles.video}
+            controls
+            playsInline
+            preload="metadata"
           >
-            <span className={styles.galleryLabel}>
-              {project.t.split(' · ')[0]} — 0{k + 1} · 占位
-            </span>
-          </div>
-        ))}
-      </div>
+            <track kind="captions" />
+          </video>
+        </div>
+      )}
+      {images.length > 0 && (
+        <div className={styles.gallery}>
+          {images.map((src, k) => (
+            <div
+              key={k}
+              className={styles.galleryItem}
+              style={{
+                background: project.g,
+                gridColumn: k === 0 ? '1 / -1' : undefined,
+                aspectRatio: k === 0 ? '16 / 10' : '4 / 3',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={`${project.t} — ${k + 1}`}
+                className={styles.galleryImg}
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

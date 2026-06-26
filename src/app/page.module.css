@@ -173,6 +173,9 @@
 .previewWrap {
   position: sticky;
   top: 96px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .preview {
@@ -200,6 +203,13 @@
   font-size: 11px;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.82);
+}
+
+.previewImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .previewMeta {

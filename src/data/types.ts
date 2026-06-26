@@ -29,6 +29,10 @@ export interface Project {
   repo: boolean;
   /** Whether this is placeholder content that should be labeled */
   isPlaceholder?: boolean;
+  /** Image URLs for project gallery (GitHub raw or local paths) */
+  images?: string[];
+  /** Local video path for film/video projects (relative to /public) */
+  video?: string;
 }
 
 export interface Photo {
@@ -37,7 +41,7 @@ export interface Photo {
   /** Caption / description text */
   cap: string;
   /** Location group key */
-  loc: 'italy' | 'nice' | 'spain' | 'strasbourg' | 'paris';
+  loc: 'italy' | 'nice' | 'spain' | 'strasbourg' | 'paris' | 'chine' | 'mont-saint-michel';
   /** Location display label */
   locLabel: string;
   /** Year taken */

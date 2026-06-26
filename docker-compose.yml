@@ -5,12 +5,10 @@ services:
       - "3000:3000"
     volumes:
       - portfolio_data:/app/data
+      - ./data/videos:/app/public/videos:ro
     environment:
       - NODE_ENV=production
-      - SMTP_HOST=${SMTP_HOST:-}
-      - SMTP_PORT=${SMTP_PORT:-}
-      - SMTP_USER=${SMTP_USER:-}
-      - SMTP_PASS=${SMTP_PASS:-}
+      - BREVO_API_KEY=${BREVO_API_KEY:-}
       - CONTACT_TO=${CONTACT_TO:-wangshihong2333@gmail.com}
     restart: unless-stopped
 

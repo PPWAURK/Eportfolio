@@ -5,7 +5,7 @@ import ScrambleText from '@/components/ScrambleText';
 import { photos } from '@/data/photos';
 import styles from './page.module.css';
 
-type Location = 'all' | 'italy' | 'nice' | 'spain' | 'strasbourg' | 'paris';
+type Location = 'all' | 'italy' | 'nice' | 'spain' | 'strasbourg' | 'paris' | 'chine' | 'mont-saint-michel';
 
 const tabs: { key: Location; label: string }[] = [
   { key: 'all', label: '全部 · Tout' },
@@ -14,6 +14,8 @@ const tabs: { key: Location; label: string }[] = [
   { key: 'spain', label: '西班牙 · Espagne' },
   { key: 'strasbourg', label: '斯特拉斯堡 · Strasbourg' },
   { key: 'paris', label: '巴黎 · Paris' },
+  { key: 'chine', label: '中国 · Chine' },
+  { key: 'mont-saint-michel', label: '圣米歇尔山 · Mont-Saint-Michel' },
 ];
 
 export default function PhotosPage() {

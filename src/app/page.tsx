@@ -29,10 +29,10 @@ export default function Home() {
         </h1>
         <div className={styles.heroDesc}>
           <p className={styles.descZh}>
-            全栈开发者，现于巴黎西岱大学（Université Paris Cité）攻读网络工程硕士。用代码构建应用，也用镜头记录山川的光与地貌。可接开发与风光摄影合作。
+            全栈开发者，巴黎西岱大学（Université Paris Cité）计算机 BUT 毕业，现 M1 网络安全工程师（alternance）。用代码构建应用，也用镜头记录山川的光与地貌。可接开发与风光摄影合作。
           </p>
           <p className={styles.descFr}>
-            Développeur full-stack à Paris, en Master d&apos;ingénierie réseau à l&apos;Université Paris Cité. Je construis des applications et photographie les paysages — ouvert aux collaborations.
+            Développeur full-stack à Paris — diplômé d&apos;un BUT Informatique de l&apos;Université Paris Cité, en M1 Cybersécurité en alternance. Je construis des applications et photographie les paysages — ouvert aux collaborations.
           </p>
         </div>
         <div className={styles.heroCta}>
@@ -67,21 +67,26 @@ export default function Home() {
         </div>
         <div className={styles.featuredGrid}>
           {/* Preview panel */}
-          <div className={styles.previewWrap}>
+          <Link href={`/projects/${active.slug}`} className={styles.previewWrap}>
             <div
               className={styles.preview}
               style={{ background: active.g }}
             >
               <div className={styles.previewYear}>{active.year}</div>
-              <div className={styles.previewPlaceholder}>
-                PLACEHOLDER · 替换为你的照片
-              </div>
+              {active.images?.[0] ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={active.images[0]} alt={active.t} className={styles.previewImg} />
+              ) : active.video ? (
+                <div className={styles.previewPlaceholder}>▶ FILM</div>
+              ) : (
+                <div className={styles.previewPlaceholder}>{active.t}</div>
+              )}
             </div>
             <div className={styles.previewMeta}>
               <div className={styles.previewTitle}>{active.t}</div>
               <div className={styles.previewType}>{active.catLabel}</div>
             </div>
-          </div>
+          </Link>
           {/* List */}
           <div
             className={styles.projectList}
