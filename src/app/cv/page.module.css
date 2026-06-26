@@ -1,0 +1,187 @@
+.sheet {
+  padding: 64px 56px 90px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 26px;
+}
+
+.name {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 6vw, 82px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  color: #5a5246;
+  margin-top: 10px;
+}
+
+.contactLine {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 12px;
+  color: #8a7f6c;
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+}
+
+.downloadBtn {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 13px 24px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.leftCol {
+  /* main content */
+}
+
+.rightCol {
+  /* sidebar */
+}
+
+.sectionTitle {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.sectionTitleSpaced {
+  margin: 38px 0 18px;
+}
+
+.entryList {
+  display: grid;
+  gap: 26px;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+}
+
+.entryLabel {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 12px;
+  color: #8a7f6c;
+  letter-spacing: 0.04em;
+  padding-top: 4px;
+}
+
+.entryTitle {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.entrySub {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-size: 13.5px;
+  color: #8a7f6c;
+  margin: 2px 0 8px;
+}
+
+.entryDesc {
+  font-family: var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5a5246;
+}
+
+.skillGroupTitle {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.skillTag {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 11px;
+  padding: 6px 11px;
+  border: 1.5px solid var(--ink);
+}
+
+.langList {
+  display: grid;
+  gap: 12px;
+}
+
+.langRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(20, 17, 13, 0.16);
+  padding-bottom: 8px;
+}
+
+.langName {
+  font-family: var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.langNameEn {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.langLevel {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 11px;
+  color: #8a7f6c;
+}
+
+@media (max-width: 768px) {
+  .sheet {
+    padding: 40px 20px 60px;
+  }
+
+  .body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

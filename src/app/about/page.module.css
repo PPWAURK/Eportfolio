@@ -1,0 +1,172 @@
+.container {
+  padding: 64px 56px 90px;
+}
+
+.tag {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(56px, 9vw, 128px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  margin: 14px 0 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 54px;
+  align-items: start;
+}
+
+.leftCol {
+  position: sticky;
+  top: 96px;
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(150deg, #3a342b, var(--ink));
+  overflow: hidden;
+}
+
+.portraitLabel {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(241, 234, 217, 0.8);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.statValue {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--accent);
+}
+
+.statValueSm {
+  font-size: 30px;
+}
+
+.statValueLg {
+  font-size: 36px;
+}
+
+.statLabel {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 11px;
+  color: #8a7f6c;
+  letter-spacing: 0.06em;
+}
+
+.rightCol {
+  /* content column */
+}
+
+.bioCn {
+  font-family: var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+
+.bioEn,
+.bioFr {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5a5246;
+  margin: 0 0 14px;
+}
+
+.bioFr {
+  margin-bottom: 40px;
+}
+
+.approachHeader {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a7f6c;
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.approachList {
+  display: grid;
+  gap: 22px;
+}
+
+.approachItem {
+  display: flex;
+  gap: 20px;
+}
+
+.approachNum {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.approachTitle {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  margin-bottom: 4px;
+}
+
+.approachDesc {
+  font-family: var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #5a5246;
+}
+
+.skillsMarquee {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  padding: 13px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px 60px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .leftCol {
+    position: static;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

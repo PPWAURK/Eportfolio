@@ -1,0 +1,46 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.enter {
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transition: transform 0.42s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.exit {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.42s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.labelContainer {
+  text-align: center;
+  color: #fff;
+  line-height: 0.92;
+}
+
+.labelZh {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 9vw, 120px);
+}
+
+.labelFr {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-top: 10px;
+}
