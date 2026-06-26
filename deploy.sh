@@ -4,45 +4,48 @@ set -e
 DOMAIN="shihongwang.fr.eu.org"
 EMAIL="wangshihong2333@gmail.com"
 
-echo "=== Portfolio Deployment Script ==="
+echo "=== Portfolio SSL Setup ==="
 echo "Domain: $DOMAIN"
 echo ""
 
 # Step 1: Create data directories
-echo "[1/5] Creating data directories..."
-mkdir -p data/ssl data/certbot/conf
+echo "[1] Creating directories..."
+mkdir -p data/ssl data/certbot/conf data/videos
 
-# Step 2: Start HTTP-only (for Let's Encrypt challenge)
-echo "[2/5] Starting HTTP server for SSL certificate..."
-docker compose up -d app nginx
+# Step 2: Start HTTP-only stack
+echo "[2] Starting HTTP stack for cert challenge..."
+docker compose up -d
 
-# Step 3: Obtain SSL certificate
-echo "[3/5] Obtaining Let's Encrypt certificate..."
-docker compose run --rm certbot certonly \
-  --webroot \
-  --webroot-path=/var/www/certbot \
-  --email "$EMAIL" \
-  --agree-tos \
-  --no-eff-email \
-  -d "$DOMAIN"
+# Step 3: Check if cert already exists
+CERT_DIR="data/certbot/conf/live/$DOMAIN"
+if [ -f "$CERT_DIR/fullchain.pem" ]; then
+  echo "[3] SSL certificate found, skipping certbot."
+else
+  echo "[3] Obtaining Let's Encrypt certificate..."
+  docker compose run --rm certbot certonly \
+    --webroot \
+    --webroot-path=/var/www/certbot \
+    --email "$EMAIL" \
+    --agree-tos \
+    --no-eff-email \
+    -d "$DOMAIN"
+fi
 
-# Step 4: Copy certs to SSL directory
-echo "[4/5] Setting up SSL certificates..."
-cp data/certbot/conf/live/$DOMAIN/fullchain.pem data/ssl/
-cp data/certbot/conf/live/$DOMAIN/privkey.pem data/ssl/
+# Step 4: Copy certs
+echo "[4] Copying certificates..."
+mkdir -p data/ssl
+cp "$CERT_DIR/fullchain.pem" data/ssl/
+cp "$CERT_DIR/privkey.pem" data/ssl/
 
-# Step 5: Switch to SSL config
-echo "[5/5] Switching to HTTPS configuration..."
-# Temporarily swap the nginx config
-cp nginx/portfolio.conf nginx/portfolio.conf.bak
+# Step 5: Switch config to SSL
+echo "[5] Switching to HTTPS config..."
+cp nginx/portfolio.conf nginx/portfolio.http.conf
 cp nginx/portfolio.ssl.conf nginx/portfolio.conf
 
 docker compose restart nginx
 
 echo ""
-echo "=== Deployment Complete ==="
-echo "Your portfolio is live at: https://$DOMAIN"
+echo "=== Done ==="
+echo "Site: https://$DOMAIN"
 echo ""
-echo "To restore HTTP-only config:"
-echo "  cp nginx/portfolio.conf.bak nginx/portfolio.conf"
-echo "  docker compose restart nginx"
+echo "To revert to HTTP only:  cp nginx/portfolio.http.conf nginx/portfolio.conf && docker compose restart nginx"
